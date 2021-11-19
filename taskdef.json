@@ -1,0 +1,27 @@
+# https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-ecs-ecr-codedeploy.html
+
+# taskdef.json
+
+{
+    "executionRoleArn": "arn:aws:iam::614967313697:role/ecsTaskExecutionRole",
+    "containerDefinitions": [
+        {
+            "name": "nginx",
+            "image": "<IMAGE1_NAME>",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "containerPort": 80
+                }
+            ]
+        }
+    ],
+    "requiresCompatibilities": [
+        "EC2"
+    ],
+    "cpu": "1024",
+    "memory": "512",
+    "family": "NginxTaskDefinition"
+}
